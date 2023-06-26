@@ -51,7 +51,20 @@ h3{
     color: #848EAD;
 }
 .toggleCont{
-    margin-top: 40px;
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 26px;
+}
+.text{
+    position: absolute;
+    display: flex;
+    top: 180px;
+    left: 140px;
+    font-size: 12px;
+}
+.year{
+    margin-left: 100px;
 }
 .line{
     border: 1px solid #ECF0FB;
@@ -77,3 +90,71 @@ button{
     width: 170px;
     height: 40px;
 }
+.slider{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 400px;
+    height: 8px;
+    background-color: #A4F3EB;
+    border-radius: 10px;
+    position: absolute;
+    top: 134px;
+    left: 70px;
+
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #10D8C4;
+    cursor: grab;
+
+}
+input[type="range"]:hover::-webkit-slider-thumb{
+    box-shadow: 2px 2px 30px 2px #00FFE799;
+}
+input[type="range"]:active::-webkit-slider-thumb{
+    cursor: grabbing;
+}
+.toggle-control {
+    display: none;
+}
+.toggle-label {
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    width: 43px;
+    height: 22px;
+    background-color: #ddd;
+    border-radius: 60px;
+    cursor: pointer;
+    user-select: none;
+}
+  
+.toggleSlider {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s;
+}
+  
+.toggle-control:checked + .toggle-label .toggleSlider {
+    transform: translateX(20px);
+}
+  
+.toggle-control:checked + .toggle-label:before {
+    background-color: #8ce196;
+}
+  
+.toggle-control:checked + .toggle-label:after {
+    margin-left: 20px;
+}
+  
+  

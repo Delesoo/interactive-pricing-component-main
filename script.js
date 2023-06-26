@@ -4,12 +4,17 @@ const valueDisplay = document.querySelector(".sliderValue");
 const pageViewsDisplay = document.querySelector(".sliderPageViews");
 const billingToggle = document.getElementById("billingToggle");
 const toggleText = document.querySelector(".toggleText");
+const toggleSlider = document.querySelector(".toggleSlider");
 
 
 const pricePerStep = 4;
 const pageViewsPerStep = 50000;
 
 billingToggle.addEventListener('change', updateBilling);
+
+billingToggle.addEventListener('change', function(){
+  toggleSlider.style.transform = billingToggle.checked ? "translateX(26px)" : "translateX(0)";
+});
 
 function updateBilling() {
     const sliderValue = parseInt(slider.value);
@@ -19,9 +24,14 @@ function updateBilling() {
     const yearlyPrice = monthlyPrice * 12;
 
 
-    toggleText.textContent = billingToggle.checked ? "Yearly Billing" : "Monthly Billing";
-    valueDisplay.innerHTML = billingToggle.checked ? `$${yearlyPrice.toFixed(2)}<span class="sidekick"> /year</span>` : `$${monthlyPrice.toFixed(2)}<span class="sidekick"> /month</span>`;
-    pageViewsDisplay.textContent = `${formatPageViews(pageViews)} PAGEVIEWS`;
+    const toggleLabel = document.querySelector('.toggle-label');
+    toggleLabel.classList.toggle('yearly-billing', billingToggle.checked);
+
+    toggleText.innerHTML = `${billingToggle.checked ? '' : ''}${billingToggle.checked ? '' : ''}`;
+
+  valueDisplay.innerHTML = billingToggle.checked ? `$${yearlyPrice.toFixed(2)}<span class="sidekick"> /year</span>` : `$${monthlyPrice.toFixed(2)}<span class="sidekick"> /month</span>`;
+
+  pageViewsDisplay.textContent = `${formatPageViews(pageViews)} PAGEVIEWS`;
 }
 
 function calculatePrice(steps) {
@@ -56,6 +66,7 @@ function updateSlider() {
     valueDisplay.innerHTML = billingToggle.checked ? `$${yearlyPrice.toFixed(2)}<span class="sidekick"> /year</span>` : `$${monthlyPrice.toFixed(2)}<span class="sidekick"> /month</span>`;
     pageViewsDisplay.textContent = `${formatPageViews(pageViews)} PAGEVIEWS`;
     }
+    
     
     
     updateBilling();
