@@ -185,5 +185,57 @@ input[type="range"]:active::-webkit-slider-thumb{
 .checks img{
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 667px) {
+
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .title{
+        text-align: center;
+        font-size: 12px;
+
+    }
+    .title h3{
+        width: 200px;
+    }
+    .mainCont{
+        width: 326px;
+        height: 478px;
+    }
+    .sliderPageViews{
+        top: 34px;
+        left: 100px;
+    }
+    .slider{
+        top: 90px;
+        left: 24px;
+        width: 280px;
+    }
+    .sliderValue{
+        top: 140px;
+        left: 80px;
+    }
+    .text{
+        top: 216px;
+        left: 26px;
+    }
+    .stats{
+        text-align: center;
+        left: 100px;
+    }
+    .checks{
+        left: 80px;
+    }
+    button{
+        top: 400px;
+        left: 74px;
+    }
+    
+    
+}
   
   
